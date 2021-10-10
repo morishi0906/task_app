@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <header>
+      <h1>Ruby on Rails スケジュール管理アプリ</h1>
+    </header> 
+  <div class="flash"><%= flash[:notice] %></div>
     <%= yield %>
   </body>
+  <footer>
+    <h1>現在の日時 : <%= Time.now.strftime("%Y-%m-%d") %></h1>
+  </footer>
 </html>

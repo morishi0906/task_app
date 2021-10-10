@@ -1,0 +1,40 @@
+<h2>スケジュールを編集してください</h2>
+<%= form_tag("/update") do %>
+  <table>
+    <tr>
+        <th>ID</th>
+        <input name="id" type="hidden" value = <%= @schedules.id %> >
+        <td><%= @schedules.id %></td>
+    </tr>  
+    <tr>
+        <th>タイトル</th>
+        <td><input name="tittle" type="text" value = <%= @schedules.tittle %> ></td>
+    </tr>
+    <tr>
+        <th>開始日</th>
+        <td><input name="startday" type="date" value = <%= @schedules.startday %>></td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td><input name ="endday" type="date" value = <%= @schedules.endday %>></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td>
+            <% if @schedules.allday == true %>
+                <input name="allday" type="checkbox" checked>
+                <input name="allday" type="hidden" value="false">
+            <% elsif @schedules.allday == false %><input name="allday" type="checkbox">
+            <% end %>
+        <p class ="all_day_check" >終日の場合はチェックを入れてください</p>
+        </td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><textarea name="schedulememo"><%= @schedules.schedulememo %></textarea></td>
+    </tr>
+  </table>  
+
+  <button class= "submit_button" type="submit">スケジュールを登録する</button>
+  <%= link_to"スケジュール一覧に戻る","/" %>
+<% end %>

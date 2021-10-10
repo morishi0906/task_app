@@ -1,0 +1,36 @@
+<h2><%= @schedules.startday %>のスケジュール</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <td><%= @schedules.id %></td>
+    </tr>  
+    <tr>
+        <th>タイトル</th>
+        <td class="check"><%= @schedules.tittle %></td>
+    </tr>
+    <tr>
+        <th>開始日</th>
+        <td class="check"><%= @schedules.startday %></td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td class="check"><%= @schedules.endday %></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td class="check"><% if @schedules.allday == true %>○
+        <% else @schedules.allday == false %>
+        <% end %></td>
+    </tr>
+    <tr>
+        <th>スケジュール更新</th>
+        <td class="check"><%= @schedules.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td class="check"><%= @schedules.schedulememo %></td>
+    </tr>          
+</table> 
+<p><%= link_to"スケジュール一覧にもどる","/" %></p>
+<%= link_to("編集", "edit") %>
+<%= link_to("削除", "destroy",method: :post, data: { confirm: "本当に削除しますか？" }) %>
