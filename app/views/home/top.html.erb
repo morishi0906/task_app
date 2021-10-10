@@ -1,0 +1,35 @@
+<h2>スケジュール一覧</h2>
+<table>
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>終日</th>
+          <th>スケジュール更新日</th>
+          <th>確認</th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.id %></td>
+          <td><%= schedule.tittle %></td>
+          <td><%= schedule.startday %></td>
+          <td><%= schedule.endday %></td>
+          <td><% if schedule.allday == true %>○<% else schedule.allday == false %><% end %></td>
+          <td><%= schedule.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td><%= link_to("確認", "#{schedule.id}/show") %></td>
+          <td><%= link_to("編集", "#{schedule.id}/edit") %></td>
+          <td><%= link_to("削除", "#{schedule.id}/destroy",method: :post, data: { confirm: "本当に削除しますか？" }) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>    
+<p><%= link_to"スケジュール新規登録","/new" %></p>
+
+
+

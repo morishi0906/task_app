@@ -1,0 +1,32 @@
+<h2>スケジュールを入力してください</h2>
+<%= form_tag("/create") do %>
+  <table>
+    <tr>
+        <th>タイトル</th>
+        <td><input name="tittle" type="text"></td>
+    </tr>
+    <tr>
+        <th>開始日</th>
+        <td><input name="startday" type="date"></td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td><input name ="endday" type="date"></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td>
+            <input name="allday" type="hidden" value="false">
+            <input name="allday" type="checkbox">
+        <p class ="all_day_check" >終日の場合はチェックを入れてください</p>
+        </td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><textarea name="schedulememo"></textarea></td>
+    </tr>
+  </table>  
+
+  <button class= "submit_button" type="submit">スケジュールを登録する</button>
+  <%= link_to"スケジュール一覧に戻る","/" %>
+<% end %>
